@@ -1,4 +1,4 @@
-<canvas id="c" width="400" height="300" style="display:block;"></canvas>
+<canvas id="c" width="500" height="300" style="display:block;"></canvas>
 
 
 <!-- vertex shader -->
@@ -115,11 +115,11 @@ void main() {
         resizeCanvasToDisplaySize(gl.canvas);
 
         // Tell WebGL how to convert from clip space to pixels
-        gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+        gl.viewport(0, 0, 100, 100);
 
         // Clear the canvas
-        gl.clearColor(0, 0, 0, 0.2);
-        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.clearColor(1, 1, 0, 1);
+        // gl.clear(gl.COLOR_BUFFER_BIT);
 
         // Tell it to use our program (pair of shaders)
         gl.useProgram(program);
@@ -128,7 +128,7 @@ void main() {
         gl.enableVertexAttribArray(positionAttributeLocation);
 
         // Bind the position buffer.
-        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        // gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
         // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
         var size = 2;          // 2 components per iteration

@@ -1,4 +1,4 @@
-<canvas id="c" width="400" height="300" style="display:block;"></canvas>
+<canvas id="c" width="100vw" height="100vh" style="display:block;"></canvas>
 
 
 <!-- vertex shader -->
@@ -28,7 +28,7 @@ varying vec4 v_color;
 
 void main() {
   gl_FragColor = v_color;
-  // gl_FragColor = vec4(1, 0, 0, 1);
+  //gl_FragColor = vec4(1, 0, 0, 1);
 }
 
 
@@ -83,9 +83,9 @@ void main() {
     function projection(width, height) {
         // Note: This matrix flips the Y axis so 0 is at the top.
         return [
-            2 / width, 0, 0,
-            0, -2 / height, 0,
-            -1, 1, 1,
+           1,0,0,
+            0,1,0,
+            0,0,1
         ];
     }
 
@@ -183,7 +183,7 @@ void main() {
         gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
         // Clear the canvas
-        gl.clearColor(0, 0, 0, 0.2);
+        // gl.clearColor(0, 0, 0, 0.2);
         gl.clear(gl.COLOR_BUFFER_BIT);
 
         // Tell it to use our program (pair of shaders)
@@ -206,11 +206,11 @@ void main() {
 
         // Compute the matrix
         var matrix = projection(gl.canvas.clientWidth, gl.canvas.clientHeight);
-        // matrix = m3.translate(matrix, translation[0], translation[1]);
+        // // matrix = m3.translate(matrix, translation[0], translation[1]);
         // matrix = rotate(matrix, angleInRadians);
-        // matrix = m3.scale(matrix, scale[0], scale[1]);
-
-        // Set the matrix.
+        // // matrix = m3.scale(matrix, scale[0], scale[1]);
+        //
+        // // Set the matrix.
         gl.uniformMatrix3fv(matrixLocation, false, matrix);
 
         // draw
